@@ -1,13 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beansProjectDescription>
 	<version>1</version>
+<<<<<<< HEAD
 	<pluginVersion><![CDATA[2.5.0.201010141000-RC1]]></pluginVersion>
+=======
+	<pluginVersion><![CDATA[3.9.16.202101120103-CI-B2760]]></pluginVersion>
+>>>>>>> branch 'main' of https://github.com/hyteoa/teamplay.git
 	<configSuffixes>
 		<configSuffix><![CDATA[xml]]></configSuffix>
 	</configSuffixes>
 	<enableImports><![CDATA[true]]></enableImports>
 	<configs>
 	</configs>
+<<<<<<< HEAD
+=======
+	<autoconfigs>
+		<config>src/main/resources/config/transaction-context.xml</config>
+		<config>src/main/resources/config/root-context.xml</config>
+		<config>src/main/resources/config/datasource-context.xml</config>
+		<config>src/main/resources/config/mybatis-context.xml</config>
+		<config>src/main/webapp/WEB-INF/spring/appServlet/servlet-context.xml</config>
+	</autoconfigs>
+>>>>>>> branch 'main' of https://github.com/hyteoa/teamplay.git
 	<configSets>
 	</configSets>
 </beansProjectDescription>
