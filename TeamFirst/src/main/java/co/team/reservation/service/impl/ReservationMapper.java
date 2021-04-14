@@ -6,5 +6,9 @@ import co.team.reservation.service.ReservationVO;
 
 public interface ReservationMapper {
 	public List<ReservationVO> getReserv(ReservationVO vo);
+	
 	public int insertReserv(ReservationVO vo);
+	
+	public int deleteReserv(ReservationVO vo);
+	
 }

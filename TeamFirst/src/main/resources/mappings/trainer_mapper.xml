@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ 
+<mapper namespace="co.team.trainer.service.impl.TrainerMapper">
+
+<select id="getTrainer" resultType="TrainerVO" parameterType="TrainerVO">
+	SELECT 	*
+	FROM 	TRAINER
+</select>
+<insert id="trainerInsert" parameterType="TrainerVO">
+	INSERT INTO TRAINER
+	(
+		course_no,
+		trainer_id,
+		course_title,
+		start_date,
+		limit
+ 	)
+ 	VALUES
+ 	(
+ 		4,
+ 		'김예담',
+ 		#{course_title},
+ 		#{start_date},
+ 		#{limit}
+ 	)
+</insert>
+
+
+<delete id="trainerDelete" parameterType="TrainerVO">
+	DELETE FROM TRAINER
+	WHERE course_no = #{course_no}
+</delete>
+</mapper>

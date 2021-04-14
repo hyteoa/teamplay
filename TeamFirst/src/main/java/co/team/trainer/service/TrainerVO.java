@@ -11,7 +11,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class TrainerVO {
-	private String trainer_id;
+	private String id;
 	private String mem_reg_id;
 	private String password;
 	private String phone_number;

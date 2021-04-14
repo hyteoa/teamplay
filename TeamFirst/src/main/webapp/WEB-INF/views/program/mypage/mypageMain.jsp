@@ -10,14 +10,14 @@
 
 
 	<div align="center">
+	<div class="container my-2">
 	<a href="#">공지사항 띄우기</a>
-	
 		<div>나의등급 확인</div>	
 
 		<h2>잔여 포인트 확인</h2>		
 		
 		포인트
-
+		</div>
 	</div>
 </body>
 </html>

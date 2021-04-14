@@ -24,6 +24,13 @@ public class ReservationImpl implements ReservationService {
 		dao.insertReserv(vo);
 		return 0;
 	}
+
+	@Override
+	public int deleteReserv(ReservationVO vo) {
+		
+		return dao.deleteReserv(vo);
+		
+	}
 	
 	
 }

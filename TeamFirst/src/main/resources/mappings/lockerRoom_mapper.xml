@@ -13,7 +13,6 @@
 	<select id="getRoom" resultType="LockerRoomVO" parameterType="LockerRoomVO">
 		select * from locker_room
 		where room_no = #{room_no}
-
 	</select>
 
 <!-- LOCKER_ROOM 삭제 -->

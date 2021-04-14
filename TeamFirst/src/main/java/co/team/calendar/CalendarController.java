@@ -19,12 +19,11 @@ public class CalendarController {
 	@RequestMapping("/calendar")
 	public String calendar(ReservationVO vo, Model model) {
 		model.addAttribute("list", reservationService.getReserv(vo));
-		return "calendar/calendar";
+		return "program/calendar/calendar";
 		
 	}
 	
 	@PostMapping("/insertCalendar")
-	@ResponseBody
 	public ReservationVO insertCalendar(ReservationVO vo) {
 		
 		reservationService.insertReserv(vo);
@@ -35,12 +34,17 @@ public class CalendarController {
 	
 	
 	
-	@RequestMapping("/daycal")
+	@RequestMapping("/trainerCal")
 	public String daycal(ReservationVO vo, Model model) {
 		model.addAttribute("list", reservationService.getReserv(vo));
-		return "calendar/daycal";
+		return "program/calendar/trainerCal";
 		
 	}
+	
+	
+	
+	
+	
 	
 	
 }

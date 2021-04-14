@@ -12,8 +12,6 @@
  			   content
  		FROM RESERVATION
  	</select>
-
-
 <!-- RESERVATION 단건 조회 -->
  	<select id="getReservation" parameterType="ReservationVO">
  		SELECT *
@@ -41,6 +39,9 @@
 			#{content}
 		)
 	</insert>
-
-
+<!-- RESERVATION delete -->
+	<delete id="deleteReserv" parameterType="ReservationVO">
+		DELETE FROM RESERVATION
+		WHERE reservation_no = #{reservation_no}
+	</delete>
 </mapper> 	

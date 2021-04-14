@@ -8,7 +8,7 @@
 </head>
 <body>
 
-<h1>내 멤버쉽</h1>
+<h1>나의 멤버쉽</h1>
 <form action="post" action="" name="">
 <table border="1">
 	<tr>

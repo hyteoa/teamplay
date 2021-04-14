@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ 
+<mapper namespace="co.team.course.service.impl.CourseMapper">
+
+<select id="getCourse" resultType="Course_Info_VO" parameterType="Course_Info_VO">
+	SELECT 	*
+	FROM 	COURSE_INFO
+	<where>   vo에 값이 있는데 
+	<if test="course_title != null ">
+		and course_title like #{course_title}
+	</if>
+	</where>
+</select>
+
+<select id="getCourse_Tuition" resultType="Course_TuitionVO" parameterType="Course_TuitionVO">
+	SELECT 	*
+	FROM 	COURSE_TUITION
+</select>
+
+
+<insert id="productInsert" parameterType="Course_Info_VO">
+	INSERT INTO COURSE_INFO
+	(
+		course_no,
+		trainer_id,
+		course_title,
+		start_date,
+		limit
+ 	)
+ 	VALUES
+ 	(
+ 		5,
+ 		'김이박',
+ 		#{course_title},
+ 		#{start_date},
+ 		#{limit}
+ 	)
+</insert>
+
+
+<insert id="productInserts" parameterType="Course_TuitionVO">
+	INSERT INTO COURSE_TUITION
+	(
+		tuition_no,
+		tuition_title,
+		unit_method,
+		unit				
+ 	)
+ 	VALUES
+ 	(
+		5, 	
+ 		#{tuition_title},
+ 		#{unit_method},
+ 		#{unit}
+ 	)
+</insert>
+
+
+<delete id="productDelete" parameterType="Course_Info_VO">
+	DELETE FROM COURSE_INFO
+	WHERE course_no = #{course_no}
+</delete>
+</mapper>
