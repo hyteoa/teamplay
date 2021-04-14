@@ -2,13 +2,14 @@ package co.team.trainer.service.impl;
 
 import java.util.List;
 
+import org.springframework.stereotype.Repository;
+
 import co.team.trainer.service.TrainerVO;
 
+@Repository
 public interface TrainerMapper {
+	public void addTrainerMember(TrainerVO member);
 
-	public List<TrainerVO> getTrainer(TrainerVO vo);
-	
-	public int trainerInsert(TrainerVO vo);
-	
-	public int trainerDelete(TrainerVO vo);
+	public String getTrainerId(TrainerVO member);
+
 }
