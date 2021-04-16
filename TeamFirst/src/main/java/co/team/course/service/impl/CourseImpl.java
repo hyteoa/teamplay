@@ -14,57 +14,69 @@ public class CourseImpl implements CourseService {
 
 	@Autowired
 	CourseMapper courseMapper;
-	
-	@Autowired
-	CourseTuitionMapper courseTuitionMapper;
-	
-	
+
 	@Override
 	public List<Course_Info_VO> getCourse(Course_Info_VO vo) {
 		return courseMapper.getCourse(vo);
 	}
 
 	@Override
-	public int productDelete(Course_Info_VO vo) {
+	public int proDel(Course_Info_VO vo) {
 
-		return courseMapper.productDelete(vo);
+		return courseMapper.proDel(vo);
 	}
 
 	@Override
 	public List<Course_TuitionVO> getCourse_Tuition(Course_TuitionVO vo) {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
 	public void productInsert(Course_Info_VO vo) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public int productInserts(Course_TuitionVO tvo) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-
-	// Course_TuitionVO List
-	
-/*
-	@Override
-	public void productInsert(Course_Info_VO vo, List<Course_TuitionVO> list) {
-		
 		courseMapper.productInsert(vo);
-		System.out.println(vo);
-		System.out.println(list);
-		for (Course_TuitionVO tvo : list) {
-			tvo.setCourse_no(vo.getCourse_no());
-			courseMapper.productInsert(tvo);
+	}
+
+	@Override
+	public void productInserts(Course_Info_VO vo, List<Course_TuitionVO> list) {
+		String course_no = vo.getCourse_no();
+		int unit_method = vo.getUnit_method_get();
+
+		for (Course_TuitionVO fvo : list) {
+			fvo.setUnit_method(unit_method);
+			fvo.setCourse_no(course_no);
+			courseMapper.productInserts(fvo);
 		}
 	}
-	*/
 
-	
+	@Override
+	public int proDel(Course_TuitionVO tvo) {
+
+		return courseMapper.proDel(tvo);
+	}
+
+	//수정
+	@Override
+	public void productUpdates(Course_Info_VO vo, List<Course_TuitionVO> list) {
+		String course_no = vo.getCourse_no();
+		int unit_method = vo.getUnit_method_get();
+
+		for (Course_TuitionVO fvo : list) {
+			fvo.setUnit_method(unit_method);
+			fvo.setCourse_no(course_no);
+			courseMapper.productUpdates(fvo);
+			}
+
+	}
+
+	@Override
+	public void productUpdate(Course_Info_VO vo) {
+		courseMapper.productUpdate(vo);
+	}
+
+	@Override
+	public Course_Info_VO get1Course(Course_Info_VO vo) {
+			
+		return courseMapper.get1Course(vo);
+	}
 
 }

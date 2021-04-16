@@ -12,4 +12,9 @@ public interface TrainerMapper {
 
 	public String getTrainerId(TrainerVO member);
 
+	public List<TrainerVO> getTrainer(TrainerVO vo);
+
+	public int trainerInsert(TrainerVO vo);
+
+	public int trainerDelete(TrainerVO vo);
 }

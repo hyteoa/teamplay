@@ -5,7 +5,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>productWrite</title>
+<title>productView</title>
 <script src="https://code.jquery.com/jquery-3.6.0.js"
 	integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
 	crossorigin="anonymous"></script>
@@ -15,23 +15,7 @@
 <script>
 	window.onload = function() {
 		
-		/*  수강료 등록 버튼 
-							--변경해야할것
-							<tr>
-								<td>
-								<input  type="text" size="6" id="tuition_title" name="tu_list[0].tuition_title"> 
-								<input  type="text" size="1" id="unit" name="tu_list[0].unit"> 
-								<input type="text"  size="5" id="tuition" name="tu_list[0].tuition">
-								</td>
-							</tr>	
-		
-						---원본
-							var a = document.querySelector("input[name=tuition_title]").cloneNode(); //input name=gender이면서 checked된 input element 찾기
-							var b = document.querySelector("input[name=unit]").cloneNode();
-							var c = document.querySelector("input[name=tuition]").cloneNode();
-							
-							
-							*/
+	
 		let buttonElement1 = document.getElementById('tui');
 		var count = 0;
 		 buttonElement1.addEventListener('click', function(){
@@ -66,31 +50,30 @@
 
 	}
 </script>
-
-
 </head>
 <body>
 	<div class="container my-4">
 		<div align="center">
-			<h3>강습등록</h3>
+			<h3>강습수정</h3>
 			<br> <br>
 		</div>
+		
 		<form class="form" name="frm" method="post" action="productWrite">
 		  <div align="center">	
 			<div class="form-group">
-				<select name="category" style="width: 180px">
+				<select name="category" style="width: 180px" id="cate">
 					<option  value="강습분류">강습분류</option>
 					<option  value="1">개인강습</option>
 					<option  value="2">단체강습</option>
 				</select>&nbsp;&nbsp; &nbsp; &nbsp; 
-				<select name="course_title" style="width: 180px">
+				<select name="course_title" style="width: 180px" id="coti">
 					<option value="">강습명</option>
 					<option value="1:1PT">1:1PT</option>
 					<option value="그룹PT">그룹PT</option>
 					<option value="스피닝">스피닝</option>
 					<option value="HomePT">HomePT</option>
 				</select><br> <br> 
-				<select name="course_day" style="width: 90px">
+				<select name="course_day" style="width: 90px" id="coday">
 					<option value="">강습시간</option>
 					<option value="07">07</option>
 					<option value="08">08</option>
@@ -111,7 +94,7 @@
 					<option value="23">23</option>
 				</select>
 				<th>시</th>&nbsp;&nbsp; 
-				<select name="course_day" style="width: 90px">
+				<select name="course_day" style="width: 90px" id="codays">
 					<option value="">강습요일</option>
 					<option value="월">월</option>
 					<option value="화">화</option>
@@ -122,15 +105,17 @@
 					<option value="일">일</option>
 				</select><br> <br> 
 				<label for="title">강습시작일</label>&nbsp; 
-					<input type="date" name="start_date"><br> <br> 
+					<input type="date" name="start_date" value="<fmt:formatDate value="${vo.start_date}" pattern="yyyy-MM-dd" />"><br><br> 
 				<label for="title">강습종료일</label>&nbsp; 
-					<input type="date" name="end_date">	 <br> <br> 
+					<input type="date" name="end_date"	 value="<fmt:formatDate value="${vo.end_date}" 	 pattern="yyyy-MM-dd" />"><br><br> 
 				<label for=" ">수강체크</label>&nbsp; 
-					<input type="radio" name="unit_method_get" value="1">기간제&nbsp;&nbsp;
-					<input type="radio" name="unit_method_get" value="2">횟수제&nbsp;&nbsp; 
+					<input type="radio" name="unit_method_get" value="1" id="unit_m"
+					<c:if test="${vo.unit_method_get eq 1 }">checked="checked"</c:if> >기간제&nbsp;&nbsp;
+					<input type="radio" name="unit_method_get" value="2"
+					<c:if test="${vo.unit_method_get eq 2 }">checked="checked"</c:if> >횟수제&nbsp;&nbsp; 
 				<label for="title">정원 </label> 
-					<input type="text" name="limit" size="1">명
-			</div>
+					<input type="text" name="limit" size="1" value="${vo.limit}">명
+			</div>					
 			</div><!-- center div  -->
 			<div class="row justify-content-between">
 				<div class=table style="width: 49%; float: left;">
@@ -146,6 +131,7 @@
 						<tbody id='tuition_no'>
 								<tr>
 									<td>
+									<c:if test="${vo1.tuition_no}"></c:if>
 									</td>
 								</tr>	
 						</tbody>
@@ -164,7 +150,7 @@
 						</thead>
 						<tbody id='trainer_id'>
 							<!-- thead, tbody 분리하여 tbody id에 getElementById('trainer_id')innerHTML 값을 찾아 넣어준다. -->
-								
+								<td><input value="${vo1.trainer_id}">
 						</tbody>
 
 					
@@ -190,7 +176,7 @@
 				</div>
 
 			</div>
-				<input type="submit" class="btn  btn-dark" value="작성하기"> <a
+				<input type="submit" class="btn  btn-dark" value="수정하기"> <a
 				class="btn btn-danger" href="productManagement">목록가기</a>
 			</form> <!--  form tag 끝 -->
 			<!--/ row justify-content-between -->
@@ -253,7 +239,7 @@
 						</div>
 						<div class="modal-footer">
 							<button type="button" id="btn" class="btn btn-primary"
-								data-dismiss="modal">등록</button>
+								data-dismiss="modal">수정하기</button>
 							<button type="button" class="btn btn-secondary"
 								data-dismiss="modal">닫기</button>
 						</div>
@@ -266,4 +252,33 @@
 		
 	</div>
 </body>
+<script>
+window.onload = function(){
+<c:if test="${vo.category !=null}" >
+document.querySelector("#cate > option[value='${vo.category}']")
+.setAttribute("selected", "selected")
+</c:if>
+
+<c:if test="${vo.course_title !=null}" >
+document.querySelector("#coti > option[value='${vo.course_title}']")
+.setAttribute("selected", "selected")
+</c:if>
+
+<c:if test="${vo.course_day !=null}" >
+document.querySelector("#coday > option[value='${vo.course_day}']")
+.setAttribute("selected", "selected")
+</c:if>
+
+
+<c:if test="${vo.course_day !=null}" >
+document.querySelector("#codays > option[value='${vo.course_day}']")
+.setAttribute("selected", "selected")
+</c:if>
+
+<c:if test="${vo1.unit_method_get != null}">
+document.querySelector("#unit_m > option[value='${vo1.unit_method_get}']")
+.setAttribute
+</c:if>
+}
+</script>
 </html>

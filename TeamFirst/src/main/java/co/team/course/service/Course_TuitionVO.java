@@ -10,7 +10,7 @@ public class Course_TuitionVO {
 	private String tuition_no;
 	private String course_no;
 	private String tuition_title;
-	private String unit_method;
+	private int unit_method;
 	private String unit;
 	private String tuition;
 	private List<Course_TuitionVO> tulist;

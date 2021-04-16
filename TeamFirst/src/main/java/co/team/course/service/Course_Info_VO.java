@@ -23,8 +23,7 @@ public class Course_Info_VO {
 	private Date start_date;
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date end_date;
-	private String unit_method_get;
-	
+	private int unit_method_get;
 	
 
 }
